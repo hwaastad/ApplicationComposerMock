@@ -21,9 +21,9 @@ import org.waastad.applicationcomposermock.shopping.ProductionShopping;
  * @author helge
  */
 @RunWith(ApplicationComposer.class)
-public class BusinessBeanIT {
+public class BusinessBeanTest {
 
-    public BusinessBeanIT() {
+    public BusinessBeanTest() {
     }
 
     @Module

@@ -14,6 +14,7 @@ import org.apache.openejb.testing.Classes;
 import org.apache.openejb.testing.Module;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.waastad.applicationcomposermock.mock.qualifier.Alpha;
 import org.waastad.applicationcomposermock.process.ProductionSms;
@@ -24,9 +25,9 @@ import org.waastad.applicationcomposermock.shopping.ProductionShopping;
  * @author helge
  */
 @RunWith(ApplicationComposer.class)
-public class BusinessBeanMockIT {
+public class BusinessBeanMockTest {
 
-    public BusinessBeanMockIT() {
+    public BusinessBeanMockTest() {
     }
 
     @Module
