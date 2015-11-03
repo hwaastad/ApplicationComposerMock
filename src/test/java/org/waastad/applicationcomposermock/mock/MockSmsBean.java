@@ -6,7 +6,9 @@
 package org.waastad.applicationcomposermock.mock;
 
 import javax.ejb.Stateless;
-import org.waastad.applicationcomposermock.mock.qualifier.Alpha;
+import javax.enterprise.inject.Alternative;
+import javax.enterprise.inject.Specializes;
+import javax.enterprise.inject.Stereotype;
 import org.waastad.applicationcomposermock.process.ProductionSms;
 import org.waastad.applicationcomposermock.process.Sms;
 
@@ -14,12 +16,20 @@ import org.waastad.applicationcomposermock.process.Sms;
  *
  * @author helge
  */
-@Alpha
+@Specializes
+@Stateless
 public class MockSmsBean extends ProductionSms {
 
     @Override
     public String doStuff() {
         return "doStuff Alpha";
     }
+
+//    @Override
+//    public String sendSms() {
+//        return super.sendSms(); //To change body of generated methods, choose Tools | Templates.
+//    }
+    
+    
 
 }

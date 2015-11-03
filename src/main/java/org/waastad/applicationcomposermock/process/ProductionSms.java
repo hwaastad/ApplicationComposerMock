@@ -5,13 +5,14 @@
  */
 package org.waastad.applicationcomposermock.process;
 
+import javax.ejb.Local;
+import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
 /**
  *
  * @author helge
  */
-//@Exclude(ifProjectStage = ProjectStage.IntegrationTest.class)
 @Stateless
 public class ProductionSms implements Sms {
 

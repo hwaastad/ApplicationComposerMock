@@ -16,7 +16,9 @@ import org.apache.openejb.testing.Configuration;
 import org.apache.openejb.testing.Module;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.FixMethodOrder;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.waastad.applicationcomposermock.mock.qualifier.Alpha;
 import org.waastad.applicationcomposermock.process.ProductionSms;
 import org.waastad.applicationcomposermock.process.Sms;
@@ -28,13 +30,14 @@ import org.waastad.applicationcomposermock.shopping.Shopping;
  * @author helge
  */
 @RunWith(ApplicationComposer.class)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class BusinessBeanMockTest {
 
     public BusinessBeanMockTest() {
     }
 
     @Module
-    @Classes(value = {BusinessBean.class, MockSmsBean.class, Sms.class, ProductionSms.class, Shopping.class, MockShoppingBean.class, ProductionShopping.class}, cdi = true)
+    @Classes(value = {BusinessBean.class, MockSmsBean.class, ProductionSms.class, MockShoppingBean.class, ProductionShopping.class}, cdi = true)
     public WebApp createWebApp() {
         return new WebApp().contextRoot("");
     }
@@ -42,8 +45,6 @@ public class BusinessBeanMockTest {
     @Module
     public Beans getCdiConfig() {
         Beans beans = new Beans();
-//        beans.setBeanDiscoveryMode("all");
-        beans.addAlternativeStereotype(Alpha.class);
         return beans;
     }
 
@@ -62,14 +63,14 @@ public class BusinessBeanMockTest {
      * @throws java.lang.Exception
      */
     @Test
-    public void testDoSomething() throws Exception {
+    public void test_00_DoSomething() throws Exception {
         String doSomething = businessBean.doSomething();
         assertEquals("ProductionSms: doStuff Alpha", doSomething);
         System.out.println(doSomething);
     }
 
     @Test
-    public void testShopping() throws Exception {
+    public void test_01_Shopping() throws Exception {
         String doSomething = businessBean.doShopping();
         assertEquals("ProductionShopping: doStuff Alpha", doSomething);
         System.out.println(doSomething);

@@ -5,6 +5,7 @@
  */
 package org.waastad.applicationcomposermock.mock;
 
+import javax.enterprise.inject.Specializes;
 import org.waastad.applicationcomposermock.mock.qualifier.Alpha;
 import org.waastad.applicationcomposermock.shopping.ProductionShopping;
 
@@ -12,7 +13,8 @@ import org.waastad.applicationcomposermock.shopping.ProductionShopping;
  *
  * @author helge
  */
-@Alpha
+//@Alpha
+@Specializes
 public class MockShoppingBean extends ProductionShopping {
 
     @Override

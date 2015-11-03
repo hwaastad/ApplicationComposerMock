@@ -5,10 +5,13 @@
  */
 package org.waastad.applicationcomposermock.process;
 
+import javax.ejb.Local;
+
 /**
  *
  * @author helge
  */
+@Local
 public interface Sms {
 
     public String sendSms();
