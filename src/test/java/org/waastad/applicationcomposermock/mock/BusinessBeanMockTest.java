@@ -5,20 +5,23 @@
  */
 package org.waastad.applicationcomposermock.mock;
 
+import java.util.Properties;
 import org.waastad.applicationcomposermock.business.*;
 import javax.inject.Inject;
 import org.apache.openejb.jee.Beans;
 import org.apache.openejb.jee.WebApp;
 import org.apache.openejb.junit.ApplicationComposer;
 import org.apache.openejb.testing.Classes;
+import org.apache.openejb.testing.Configuration;
 import org.apache.openejb.testing.Module;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.waastad.applicationcomposermock.mock.qualifier.Alpha;
 import org.waastad.applicationcomposermock.process.ProductionSms;
+import org.waastad.applicationcomposermock.process.Sms;
 import org.waastad.applicationcomposermock.shopping.ProductionShopping;
+import org.waastad.applicationcomposermock.shopping.Shopping;
 
 /**
  *
@@ -31,7 +34,7 @@ public class BusinessBeanMockTest {
     }
 
     @Module
-    @Classes(value = {BusinessBean.class, MockSmsBean.class, ProductionSms.class, MockShoppingBean.class, ProductionShopping.class}, cdi = true)
+    @Classes(value = {BusinessBean.class, MockSmsBean.class, Sms.class, ProductionSms.class, Shopping.class, MockShoppingBean.class, ProductionShopping.class}, cdi = true)
     public WebApp createWebApp() {
         return new WebApp().contextRoot("");
     }
@@ -42,6 +45,12 @@ public class BusinessBeanMockTest {
 //        beans.setBeanDiscoveryMode("all");
         beans.addAlternativeStereotype(Alpha.class);
         return beans;
+    }
+
+    @Configuration
+    public Properties properties() {
+        Properties p = new Properties();
+        return p;
     }
 
     @Inject

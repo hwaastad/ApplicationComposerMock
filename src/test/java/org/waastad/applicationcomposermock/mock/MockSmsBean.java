@@ -8,13 +8,13 @@ package org.waastad.applicationcomposermock.mock;
 import javax.ejb.Stateless;
 import org.waastad.applicationcomposermock.mock.qualifier.Alpha;
 import org.waastad.applicationcomposermock.process.ProductionSms;
+import org.waastad.applicationcomposermock.process.Sms;
 
 /**
  *
  * @author helge
  */
 @Alpha
-@Stateless(name = "ProductionSms")
 public class MockSmsBean extends ProductionSms {
 
     @Override

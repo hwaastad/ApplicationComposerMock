@@ -11,6 +11,7 @@ import javax.ejb.Stateless;
  *
  * @author helge
  */
+//@Exclude(ifProjectStage = ProjectStage.IntegrationTest.class)
 @Stateless
 public class ProductionSms implements Sms {
 
